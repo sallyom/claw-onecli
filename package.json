@@ -1,0 +1,48 @@
+{
+  "name": "claw-onecli",
+  "version": "0.1.0",
+  "description": "OneCLI SecretRef provider integration for OpenClaw",
+  "type": "module",
+  "packageManager": "npm@11.4.2",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sallyom/claw-onecli.git"
+  },
+  "files": [
+    "README.md",
+    "openclaw.plugin.json",
+    "index.ts",
+    "cli-metadata.ts",
+    "cli.ts",
+    "secret-ref-resolver.js"
+  ],
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "commander": "14.0.2",
+    "typescript": "5.9.3",
+    "vitest": "4.1.6"
+  },
+  "peerDependencies": {
+    "openclaw": ">=2026.5.6"
+  },
+  "openclaw": {
+    "extensions": [
+      "./index.ts"
+    ],
+    "compat": {
+      "pluginApi": ">=2026.5.6"
+    },
+    "install": {
+      "clawhubSpec": "claw-onecli",
+      "defaultChoice": "clawhub",
+      "minHostVersion": ">=2026.5.6"
+    },
+    "release": {
+      "publishToClawHub": true
+    }
+  }
+}

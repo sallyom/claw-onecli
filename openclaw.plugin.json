@@ -1,0 +1,33 @@
+{
+  "id": "onecli",
+  "description": "OneCLI SecretRef provider integration",
+  "activation": {
+    "onStartup": false
+  },
+  "enabledByDefault": true,
+  "secretProviderIntegrations": {
+    "onecli": {
+      "providerAlias": "onecli",
+      "displayName": "OneCLI",
+      "description": "Resolve OpenClaw exec SecretRefs through a OneCLI-compatible resolver.",
+      "source": "exec",
+      "command": "./secret-ref-resolver.js",
+      "timeoutMs": 5000,
+      "noOutputTimeoutMs": 5000,
+      "maxOutputBytes": 1048576,
+      "trustedDirs": ["."],
+      "passEnv": [
+        "HOME",
+        "PATH",
+        "ONECLI_SECRET_RESOLVER_COMMAND",
+        "ONECLI_SECRET_RESOLVER_ARGS_JSON",
+        "ONECLI_SECRET_VALUES_JSON"
+      ]
+    }
+  },
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {}
+  }
+}
